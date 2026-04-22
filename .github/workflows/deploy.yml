@@ -57,6 +57,7 @@ jobs:
             GOOGLE_CLOUD_PROJECT=${{ secrets.GCP_PROJECT_ID }}
             GOOGLE_CLOUD_LOCATION=${{ secrets.GCP_REGION || 'us-central1' }}
             AGENT_ENGINE_ID=${{ secrets.AGENT_ENGINE_ID }}
+            GCS_BUCKET_NAME=${{ secrets.GCS_BUCKET_NAME }}
             GOOGLE_GENAI_USE_VERTEXAI=0
           secrets: |
             GOOGLE_API_KEY=GOOGLE_API_KEY:latest
