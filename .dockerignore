@@ -1,7 +1,0 @@
-.env
-.git
-.github
-.adk/
-output/
-__pycache__/
-*.pyc
