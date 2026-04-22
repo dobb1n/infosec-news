@@ -7,10 +7,10 @@ on:
 
 env:
   PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
-  REGION: ${{ secrets.GCP_REGION || 'us-central1' }}
+  REGION: ${{ secrets.GCP_REGION || 'europe-west2' }}
   SERVICE_NAME: infosec-news-agent
-  REGISTRY: ${{ secrets.GCP_REGION || 'us-central1' }}-docker.pkg.dev
-  IMAGE: ${{ secrets.GCP_REGION || 'us-central1' }}-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/infosec-news/infosec-news-agent
+  REGISTRY: ${{ secrets.GCP_REGION || 'europe-west2' }}-docker.pkg.dev
+  IMAGE: ${{ secrets.GCP_REGION || 'europe-west2' }}-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/infosec-news/infosec-news-agent
 
 jobs:
   deploy:
@@ -55,7 +55,7 @@ jobs:
           image: ${{ env.IMAGE }}:${{ github.sha }}
           env_vars: |
             GOOGLE_CLOUD_PROJECT=${{ secrets.GCP_PROJECT_ID }}
-            GOOGLE_CLOUD_LOCATION=${{ secrets.GCP_REGION || 'us-central1' }}
+            GOOGLE_CLOUD_LOCATION=${{ secrets.GCP_REGION || 'europe-west2' }}
             AGENT_ENGINE_ID=${{ secrets.AGENT_ENGINE_ID }}
             GCS_BUCKET_NAME=${{ secrets.GCS_BUCKET_NAME }}
             GOOGLE_GENAI_USE_VERTEXAI=0
