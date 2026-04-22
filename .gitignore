@@ -1,5 +1,6 @@
 __pycache__/
 *.pyc
 .env
+key.json
 .adk/
 output/
