@@ -1,6 +1,7 @@
 __pycache__/
 *.pyc
 .env
+infosec_agent/.env
 key.json
 create_engine.py
 .adk/

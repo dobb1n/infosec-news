@@ -35,8 +35,9 @@ infosec-news/
 │       ├── register.py       # Fetches The Register Atom feed
 │       ├── sans_isc.py       # Fetches SANS ISC podcast RSS feed
 │       └── report.py         # Writes the digest (local or GCS)
-├── config/
-│   └── keywords.yaml         # ← edit this to change what you track
+├── infosec_agent/
+│   └── config/
+│       └── keywords.yaml     # ← edit this to change what you track
 ├── runner.py                 # Local runner with Vertex AI memory support
 ├── deploy_agent.py           # CI deployment script (create or update engine)
 ├── requirements.txt
@@ -47,7 +48,7 @@ infosec-news/
 
 ## Configuring your keywords
 
-Edit `config/keywords.yaml` — add or remove topics at any time:
+Edit `infosec_agent/config/keywords.yaml` — add or remove topics at any time:
 
 ```yaml
 keywords:

@@ -1,7 +1,7 @@
 import yaml
 from pathlib import Path
 
-_CONFIG_PATH = Path(__file__).parent.parent.parent / "config" / "keywords.yaml"
+_CONFIG_PATH = Path(__file__).parent.parent / "config" / "keywords.yaml"
 
 
 def load_keywords() -> dict:

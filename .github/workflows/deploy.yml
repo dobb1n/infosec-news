@@ -29,25 +29,38 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Deploy to Agent Engine
+      - name: Write runtime env file
         env:
-          GOOGLE_CLOUD_LOCATION: ${{ secrets.GCP_REGION || 'europe-west2' }}
+          GCP_REGION: ${{ secrets.GCP_REGION || 'europe-west2' }}
           GCS_BUCKET_NAME: ${{ secrets.GCS_BUCKET_NAME }}
-          AGENT_ENGINE_ID: ${{ secrets.AGENT_ENGINE_ID }}
           MODEL_ARMOR_TEMPLATE_ID: ${{ secrets.MODEL_ARMOR_TEMPLATE_ID }}
           GOOGLE_CLOUD_AGENT_ENGINE_ENABLE_TELEMETRY: ${{ secrets.GOOGLE_CLOUD_AGENT_ENGINE_ENABLE_TELEMETRY }}
+          GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
+        run: |
+          cat > infosec_agent/.env << EOF
+          GOOGLE_CLOUD_PROJECT=the-tinkering-shed
+          GOOGLE_CLOUD_LOCATION=$GCP_REGION
+          GCS_BUCKET_NAME=$GCS_BUCKET_NAME
+          MODEL_ARMOR_TEMPLATE_ID=$MODEL_ARMOR_TEMPLATE_ID
+          GOOGLE_CLOUD_AGENT_ENGINE_ENABLE_TELEMETRY=$GOOGLE_CLOUD_AGENT_ENGINE_ENABLE_TELEMETRY
+          GOOGLE_API_KEY=$GOOGLE_API_KEY
+          GOOGLE_GENAI_USE_VERTEXAI=0
+          EOF
+
+      - name: Deploy to Agent Engine
+        env:
+          AGENT_ENGINE_ID: ${{ secrets.AGENT_ENGINE_ID }}
+          GCP_REGION: ${{ secrets.GCP_REGION || 'europe-west2' }}
         run: |
           if [ -n "$AGENT_ENGINE_ID" ]; then
             adk deploy agent_engine \
               --project=the-tinkering-shed \
-              --region=$GOOGLE_CLOUD_LOCATION \
-              --staging_bucket=gs://$GCS_BUCKET_NAME \
+              --region=$GCP_REGION \
               --agent_engine_id=$AGENT_ENGINE_ID \
               infosec_agent
           else
             adk deploy agent_engine \
               --project=the-tinkering-shed \
-              --region=$GOOGLE_CLOUD_LOCATION \
-              --staging_bucket=gs://$GCS_BUCKET_NAME \
+              --region=$GCP_REGION \
               infosec_agent
           fi
