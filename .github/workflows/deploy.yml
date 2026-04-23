@@ -35,6 +35,7 @@ jobs:
           GCS_BUCKET_NAME: ${{ secrets.GCS_BUCKET_NAME }}
           AGENT_ENGINE_ID: ${{ secrets.AGENT_ENGINE_ID }}
           MODEL_ARMOR_TEMPLATE_ID: ${{ secrets.MODEL_ARMOR_TEMPLATE_ID }}
+          GOOGLE_CLOUD_AGENT_ENGINE_ENABLE_TELEMETRY: ${{ secrets.GOOGLE_CLOUD_AGENT_ENGINE_ENABLE_TELEMETRY }}
         run: |
           if [ -n "$AGENT_ENGINE_ID" ]; then
             adk deploy agent_engine \
