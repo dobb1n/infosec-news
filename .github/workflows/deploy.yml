@@ -34,4 +34,18 @@ jobs:
           GOOGLE_CLOUD_LOCATION: ${{ secrets.GCP_REGION || 'europe-west2' }}
           GCS_BUCKET_NAME: ${{ secrets.GCS_BUCKET_NAME }}
           AGENT_ENGINE_ID: ${{ secrets.AGENT_ENGINE_ID }}
-        run: python deploy_agent.py
+        run: |
+          if [ -n "$AGENT_ENGINE_ID" ]; then
+            adk deploy agent_engine \
+              --project=the-tinkering-shed \
+              --region=$GOOGLE_CLOUD_LOCATION \
+              --staging_bucket=gs://$GCS_BUCKET_NAME \
+              --agent_engine_id=$AGENT_ENGINE_ID \
+              infosec_agent
+          else
+            adk deploy agent_engine \
+              --project=the-tinkering-shed \
+              --region=$GOOGLE_CLOUD_LOCATION \
+              --staging_bucket=gs://$GCS_BUCKET_NAME \
+              infosec_agent
+          fi
