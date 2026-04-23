@@ -1,6 +1,7 @@
 from google.adk.agents import Agent
 from google.adk.tools import FunctionTool, load_memory
 from .tools import load_keywords, fetch_register_news, fetch_sans_isc_notes, write_report
+from .model_armor import before_model_callback, after_model_callback
 
 root_agent = Agent(
     name="infosec_news_agent",
@@ -52,4 +53,6 @@ For each of the most recent episodes:
         FunctionTool(fetch_sans_isc_notes),
         FunctionTool(write_report),
     ],
+    before_model_callback=before_model_callback,
+    after_model_callback=after_model_callback,
 )
