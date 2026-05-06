@@ -34,7 +34,6 @@ jobs:
           GCP_REGION: ${{ secrets.GCP_REGION || 'europe-west2' }}
           GCS_BUCKET_NAME: ${{ secrets.GCS_BUCKET_NAME }}
           MODEL_ARMOR_TEMPLATE_ID: ${{ secrets.MODEL_ARMOR_TEMPLATE_ID }}
-          GOOGLE_CLOUD_AGENT_ENGINE_ENABLE_TELEMETRY: ${{ secrets.GOOGLE_CLOUD_AGENT_ENGINE_ENABLE_TELEMETRY }}
           GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
         run: |
           cat > infosec_agent/.env << EOF
@@ -42,9 +41,9 @@ jobs:
           GOOGLE_CLOUD_LOCATION=$GCP_REGION
           GCS_BUCKET_NAME=$GCS_BUCKET_NAME
           MODEL_ARMOR_TEMPLATE_ID=$MODEL_ARMOR_TEMPLATE_ID
-          GOOGLE_CLOUD_AGENT_ENGINE_ENABLE_TELEMETRY=$GOOGLE_CLOUD_AGENT_ENGINE_ENABLE_TELEMETRY
+          GOOGLE_CLOUD_AGENT_ENGINE_ENABLE_TELEMETRY=true
           GOOGLE_API_KEY=$GOOGLE_API_KEY
-          GOOGLE_GENAI_USE_VERTEXAI=0
+          GOOGLE_GENAI_USE_VERTEXAI=1
           EOF
 
       - name: Deploy to Agent Engine
