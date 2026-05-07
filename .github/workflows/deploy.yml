@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - main
+    paths:
+      - "infosec_agent/**"
 
 jobs:
   deploy:
