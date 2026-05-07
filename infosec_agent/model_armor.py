@@ -55,8 +55,8 @@ def before_model_callback(
     try:
         from google.cloud import modelarmor_v1
         text = ""
-        if llm_request.messages:
-            last = llm_request.messages[-1]
+        if llm_request.contents:
+            last = llm_request.contents[-1]
             if last.parts:
                 text = last.parts[0].text or ""
 
