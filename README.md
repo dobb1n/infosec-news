@@ -1,6 +1,8 @@
 # infosec-news
 
-An AI agent that fetches infosec news from [The Register](https://www.theregister.com) and the [SANS Internet Storm Center podcast](https://isc.sans.edu/podcast.html), filters stories against a keyword list you control, and writes a dated markdown digest.
+An AI agent that fetches infosec news from [The Register](https://www.theregister.com) and the [SANS Internet Storm Center podcast](https://isc.sans.edu/podcast.html), filters stories against a keyword list you control, and writes a dated markdown digest to a bucket. 
+
+also deploys a fastapi based container to cloud run allowing collection of the retrieved info. 
 
 Built with [Google Agent Development Kit (ADK)](https://google.github.io/adk-docs) and deployed to [Vertex AI Agent Engine](https://cloud.google.com/vertex-ai/docs/reasoning-engine/overview).
 
