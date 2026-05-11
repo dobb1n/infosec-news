@@ -88,9 +88,10 @@ export default function StoryCard({ story }: { story: Story }) {
             {escalation.status === "idle" && (
               <button
                 onClick={handleEscalate}
-                className="text-xs font-medium px-3 py-1.5 bg-red-900 hover:bg-red-800 border border-red-700 text-red-200 rounded transition-colors whitespace-nowrap"
+                title="Escalate"
+                className="hover:scale-110 active:scale-95 transition-transform"
               >
-                Escalate
+                <img src="/escalate.png" alt="Escalate" className="h-12 w-auto" />
               </button>
             )}
             {escalation.status === "loading" && (
