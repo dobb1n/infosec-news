@@ -89,9 +89,10 @@ export default function StoryCard({ story }: { story: Story }) {
               <button
                 onClick={handleEscalate}
                 title="Escalate"
-                className="hover:scale-110 active:scale-95 transition-transform"
+                className="flex flex-col items-center gap-1 hover:scale-110 active:scale-95 transition-transform"
               >
                 <img src="/escalate.png" alt="Escalate" className="h-12 w-auto" />
+                <span className="text-xs font-bold text-red-500 uppercase tracking-widest">Escalate</span>
               </button>
             )}
             {escalation.status === "loading" && (
