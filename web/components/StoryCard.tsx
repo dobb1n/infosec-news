@@ -32,11 +32,13 @@ export default function StoryCard({ story }: { story: Story }) {
           summary: story.summary,
         }),
       });
+      const text = await res.text();
       if (!res.ok) {
-        const data = await res.json().catch(() => ({}));
-        throw new Error(data.error ?? `HTTP ${res.status}`);
+        let message = `HTTP ${res.status}`;
+        try { message = JSON.parse(text).error ?? message; } catch { /* HTML error page */ }
+        throw new Error(message);
       }
-      const data = await res.json();
+      const data = JSON.parse(text);
       setEscalation({ status: "done", report: data.report });
       setShowReport(true);
     } catch (e) {
