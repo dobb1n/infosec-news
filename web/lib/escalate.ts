@@ -1,7 +1,7 @@
 import { VertexAI } from "@google-cloud/vertexai";
 
 const PROJECT = process.env.GOOGLE_CLOUD_PROJECT ?? "the-tinkering-shed";
-const LOCATION = process.env.GOOGLE_CLOUD_LOCATION ?? "europe-west2";
+const LOCATION = process.env.VERTEX_AI_LOCATION ?? "global";
 const MODEL = "gemini-2.5-flash-preview-05-20";
 
 export async function generateEscalationReport(
