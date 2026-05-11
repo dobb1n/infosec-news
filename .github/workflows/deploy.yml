@@ -6,6 +6,7 @@ on:
       - main
     paths:
       - "infosec_agent/**"
+  workflow_dispatch:
 
 jobs:
   deploy:
