@@ -48,5 +48,5 @@ jobs:
             --region=$GCP_REGION \
             --platform=managed \
             --allow-unauthenticated \
-            --set-env-vars="GCS_BUCKET_NAME=${{ secrets.GCS_BUCKET_NAME }}" \
+            --set-env-vars="GCS_BUCKET_NAME=${{ secrets.GCS_BUCKET_NAME }},GOOGLE_CLOUD_PROJECT=the-tinkering-shed,GOOGLE_CLOUD_LOCATION=$GCP_REGION" \
             --service-account=${{ secrets.WEB_SERVICE_ACCOUNT }}
