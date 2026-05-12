@@ -10,7 +10,7 @@ _instruction = _PROMPT_PATH.read_text()
 
 root_agent = Agent(
     name="infosec_news_agent",
-    model="gemini-2.5-flash",
+    model="gemini-3.1-flash",
     description="Curates infosec news from The Register and SANS ISC, then writes a digest report.",
     instruction=_instruction,
     tools=[
