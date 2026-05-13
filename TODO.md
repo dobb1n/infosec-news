@@ -11,3 +11,5 @@
 ## Infrastructure
 
 - [ ] Set up Artifact Registry repo, service accounts, and IAM bindings for Cloud Run deploy (see README setup notes).
+
+- [ ] investigate using the global model endpoint - as its in europe-west2 now, very limited options https://docs.cloud.google.com/gemini-enterprise-agent-platform/resources/locations#europe
