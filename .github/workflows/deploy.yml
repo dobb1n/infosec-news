@@ -58,11 +58,13 @@ jobs:
             adk deploy agent_engine \
               --project=the-tinkering-shed \
               --region=$GCP_REGION \
+              --trace_to_cloud \
               --agent_engine_id=$AGENT_ENGINE_ID \
               infosec_agent
           else
             adk deploy agent_engine \
               --project=the-tinkering-shed \
               --region=$GCP_REGION \
+              --trace_to_cloud \
               infosec_agent
           fi
