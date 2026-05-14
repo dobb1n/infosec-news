@@ -7,3 +7,4 @@ create_engine.py
 .adk/
 output/
 .claude/
+.DS_Store

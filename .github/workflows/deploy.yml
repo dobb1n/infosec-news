@@ -34,7 +34,7 @@ jobs:
 
       - name: Write runtime env file
         env:
-          GCP_REGION: ${{ secrets.GCP_REGION || 'europe-west2' }}
+          GCP_REGION: ${{ secrets.GCP_REGION || 'global' }}
           GCS_BUCKET_NAME: ${{ secrets.GCS_BUCKET_NAME }}
           MODEL_ARMOR_TEMPLATE_ID: ${{ secrets.MODEL_ARMOR_TEMPLATE_ID }}
         run: |
