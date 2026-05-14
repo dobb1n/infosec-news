@@ -52,7 +52,7 @@ jobs:
       - name: Deploy to Agent Engine
         env:
           AGENT_ENGINE_ID: ${{ secrets.AGENT_ENGINE_ID }}
-          GCP_REGION: ${{ secrets.GCP_REGION || 'europe-west2' }}
+          GCP_REGION: ${{ secrets.GCP_REGION || 'global' }}
         run: |
           if [ -n "$AGENT_ENGINE_ID" ]; then
             adk deploy agent_engine \
