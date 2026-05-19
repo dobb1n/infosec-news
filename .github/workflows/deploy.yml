@@ -34,7 +34,7 @@ jobs:
 
       - name: Write runtime env file
         env:
-          GCP_REGION: ${{ secrets.GCP_REGION || 'global' }}
+          GCP_REGION: ${{ secrets.GCP_REGION || 'europe-west2' }}
           GCS_BUCKET_NAME: ${{ secrets.GCS_BUCKET_NAME }}
           MODEL_ARMOR_TEMPLATE_ID: ${{ secrets.MODEL_ARMOR_TEMPLATE_ID }}
         run: |
@@ -50,7 +50,7 @@ jobs:
       - name: Deploy to Agent Engine
         env:
           AGENT_ENGINE_ID: ${{ secrets.AGENT_ENGINE_ID }}
-          GCP_REGION: ${{ secrets.GCP_REGION || 'global' }}
+          GCP_REGION: ${{ secrets.GCP_REGION || 'europe-west2' }}
         run: |
           if [ -n "$AGENT_ENGINE_ID" ]; then
             adk deploy agent_engine \
